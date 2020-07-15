@@ -38,16 +38,13 @@ const useStyles = makeStyles({
   },
 });
 
-export default function VenueMaker(props) {
+const VenueMaker = (props) => {
   const myInput = useRef();
   const classes = useStyles();
 
   const goToVenue = (event) => {
-    // 1. Stop the form from submitting
     event.preventDefault();
-    // 2. get the text from that input
     const venueName = myInput.current.value;
-    // 3. Change the page to /store/whatever-they-entered
     props.history.push(`/venue/${venueName}`);
   };
 
@@ -55,7 +52,7 @@ export default function VenueMaker(props) {
     <>
       <AppBar position='static'>
         <Typography variant='h1' className={classes.title}>
-          Gigs App
+          Listings App
         </Typography>
       </AppBar>
       <form className={classes.venueSelector}>
@@ -84,4 +81,6 @@ export default function VenueMaker(props) {
       </form>
     </>
   );
-}
+};
+
+export default VenueMaker;

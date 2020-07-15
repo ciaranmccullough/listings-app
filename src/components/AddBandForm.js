@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { useRef } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import {
@@ -6,7 +7,6 @@ import {
   FormControl,
   Input,
   Button,
-  InputLabel,
   Select,
   MenuItem,
 } from '@material-ui/core';
@@ -19,23 +19,16 @@ const useStyles = makeStyles({
   formControl: {
     marginBottom: '10px',
   },
-  status: {
-    marginBottom: '10px',
-  },
-  button: {
-    marginBottom: '10px',
-  },
 });
 
-export default function AddBandForm(props) {
-  const nameRef = useRef();
-  const statusRef = useRef();
-  const descRef = useRef();
-  const imageRef = useRef();
-  const classes = useStyles(props);
+const AddBandForm = (props) => {
+  const nameRef = useRef(null);
+  const statusRef = useRef(null);
+  const descRef = useRef(null);
+  const imageRef = useRef(null);
+  const classes = useStyles();
 
   const createBand = (event) => {
-    // 1.  stop the form from submitting
     event.preventDefault();
     const band = {
       name: nameRef.current.value,
@@ -43,41 +36,31 @@ export default function AddBandForm(props) {
       desc: descRef.current.value,
       image: imageRef.current.value,
     };
-    props.addBand(band);
-    // refresh the form
     event.currentTarget.reset();
+    props.addBand(band);
   };
-
   return (
     <form className={classes.bandForm} onSubmit={createBand}>
-      <FormControl>
+      <FormControl className={classes.formControl}>
         <Input name='name' inputRef={nameRef} type='text' placeholder='Name' />
       </FormControl>
-      <FormControl className={classes.status}>
-        <InputLabel id='demo-simple-select-label'>Status</InputLabel>
-        <Select
-          name='status'
-          labelId='demo-simple-select-label'
-          id='demo-simple-select'
-          inputRef={statusRef}
-        >
+      <FormControl className={classes.formControl}>
+        <Select name='status' inputRef={statusRef}>
           <MenuItem value='available'>Ready!</MenuItem>
           <MenuItem value='unavailable'>Sold Out!</MenuItem>
         </Select>
       </FormControl>
-      <FormControl className={classes.formControl}>
-        <TextField name='desc' inputRef={descRef} placeholder='Desc' />
-      </FormControl>
+      <TextField name='desc' inputRef={descRef} placeholder='Desc' />
       <FormControl className={classes.formControl}>
         <Input
           name='image'
           inputRef={imageRef}
           type='text'
-          placeholder='Image'
+          placeholder='Image(url)'
         />
       </FormControl>
       <Button
-        className={classes.button}
+        className={classes.formControl}
         variant='contained'
         color='primary'
         type='submit'
@@ -86,4 +69,10 @@ export default function AddBandForm(props) {
       </Button>
     </form>
   );
-}
+};
+
+export default AddBandForm;
+
+AddBandForm.propTypes = {
+  addBand: PropTypes.func,
+};
