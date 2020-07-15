@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/styles';
 import {
@@ -12,7 +12,6 @@ import {
   Paper,
 } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/CloudUpload';
-import base from '../base';
 
 const useStyles = makeStyles({
   bandEdit: {
