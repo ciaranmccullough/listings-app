@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core';
 import Header from './Header';
 import Listings from './Listings';
 import Bookings from './Bookings';
@@ -49,6 +49,11 @@ const App = (props) => {
     JSON.parse(localStorage.getItem(venueId)) || {}
   );
   const classes = useStyles();
+  // const matches = useMediaQuery(
+  //   json2mq({
+  //     maxWidth: 600,
+  //   })
+  // );
 
   const addBand = (band) => {
     const myBands = { ...bands };
@@ -101,6 +106,7 @@ const App = (props) => {
 
   return (
     <div className={classes.gigsApp}>
+      {/* {`(max-width:600px) matches: ${matches}`} */}
       <div className={classes.menu}>
         <Header />
         <ul className={classes.bandList}>

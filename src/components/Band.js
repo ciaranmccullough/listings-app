@@ -10,6 +10,7 @@ import {
   Typography,
   Button,
 } from '@material-ui/core/';
+import SaveIcon from '@material-ui/icons/Save';
 
 const useStyles = makeStyles({
   card: {
@@ -51,6 +52,7 @@ const Band = (props) => {
           type='submit'
           disabled={!isAvailable}
           onClick={props.addToListing}
+          startIcon={<SaveIcon />}
         >
           {isAvailable ? 'Add To Listing' : 'Sold Out'}
         </Button>

@@ -7,9 +7,9 @@ import {
   FormControl,
   Input,
   Button,
-  Icon,
 } from '@material-ui/core';
 import { getRandomName } from '../helpers';
+// import Icon from '@material-ui/core/Icon';
 
 const useStyles = makeStyles({
   title: {
@@ -57,7 +57,7 @@ const VenueMaker = (props) => {
       </AppBar>
       <form className={classes.venueSelector}>
         <Typography className={classes.typography} variant='h3'>
-          Please Enter A Venue
+          Please enter or create a venue
         </Typography>
         <FormControl>
           <Input
@@ -72,7 +72,7 @@ const VenueMaker = (props) => {
         <Button
           variant='contained'
           className={classes.button}
-          endIcon={<Icon>send</Icon>}
+          // endIcon={<Icon>send</Icon>}
           type='submit'
           onClick={goToVenue}
         >

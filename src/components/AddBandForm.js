@@ -9,7 +9,9 @@ import {
   Button,
   Select,
   MenuItem,
+  InputLabel,
 } from '@material-ui/core';
+import SaveIcon from '@material-ui/icons/Save';
 
 const useStyles = makeStyles({
   bandForm: {
@@ -45,6 +47,7 @@ const AddBandForm = (props) => {
         <Input name='name' inputRef={nameRef} type='text' placeholder='Name' />
       </FormControl>
       <FormControl className={classes.formControl}>
+        <InputLabel id='demo-simple-select-label'>Status</InputLabel>
         <Select name='status' inputRef={statusRef}>
           <MenuItem value='available'>Ready!</MenuItem>
           <MenuItem value='unavailable'>Sold Out!</MenuItem>
@@ -64,6 +67,7 @@ const AddBandForm = (props) => {
         variant='contained'
         color='primary'
         type='submit'
+        startIcon={<SaveIcon />}
       >
         Add Band
       </Button>

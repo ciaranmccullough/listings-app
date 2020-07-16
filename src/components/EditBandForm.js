@@ -10,14 +10,15 @@ import {
   Select,
   MenuItem,
   Paper,
+  InputLabel,
 } from '@material-ui/core';
-import DeleteIcon from '@material-ui/icons/CloudUpload';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 const useStyles = makeStyles({
   bandEdit: {
     display: 'flex',
     flexDirection: 'column',
-    textAlign: 'center',
+
     margin: '20px 10px',
     padding: '20px',
   },
@@ -82,6 +83,7 @@ const EditBandForm = (props) => {
   return (
     <Paper elevation={3} className={classes.bandEdit}>
       <FormControl>
+        <InputLabel id='demo-simple-select-label'>Name</InputLabel>
         <Input
           className={classes.formControl}
           name='name'
@@ -91,6 +93,7 @@ const EditBandForm = (props) => {
         />
       </FormControl>
       <FormControl>
+        <InputLabel id='demo-simple-select-label'>Status</InputLabel>
         <Select
           className={classes.formControl}
           name='status'
@@ -102,6 +105,7 @@ const EditBandForm = (props) => {
           <MenuItem value='unavailable'>Sold Out!</MenuItem>
         </Select>
       </FormControl>
+      <InputLabel id='demo-simple-select-label'>Description</InputLabel>
       <TextField
         className={classes.formControl}
         name='desc'
@@ -109,7 +113,8 @@ const EditBandForm = (props) => {
         value={values.desc}
       />
       <FormControl className={classes.formControl}>
-        <input
+        <InputLabel id='demo-simple-select-label'>Image</InputLabel>
+        <Input
           name='image'
           onChange={handleChange}
           type='text'
