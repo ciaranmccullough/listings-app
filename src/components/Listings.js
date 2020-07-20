@@ -70,7 +70,7 @@ export default function Listings(props) {
   return (
     <div className={classes.listings}>
       <Typography className={classes.heading} variant='h2' gutterBottom>
-        Listings!
+        Listings
       </Typography>
       <ul className={classes.list}>{listingsIds.map(renderListings)}</ul>
     </div>

@@ -18,7 +18,6 @@ const useStyles = makeStyles({
   bandEdit: {
     display: 'flex',
     flexDirection: 'column',
-
     margin: '20px 10px',
     padding: '20px',
   },
